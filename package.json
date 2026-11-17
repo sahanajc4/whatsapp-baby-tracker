@@ -1,0 +1,13 @@
+{
+  "name": "whatsapp-baby-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Checkpointed Apps Script and Google Sheets WhatsApp baby activity tracker",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check:syntax": "node --check tests/parser.test.js && cp src/Code.gs /tmp/whatsapp-baby-tracker-Code.js && node --check /tmp/whatsapp-baby-tracker-Code.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

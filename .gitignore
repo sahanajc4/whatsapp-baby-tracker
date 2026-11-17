@@ -1,0 +1,24 @@
+# Local secrets and exports
+.env
+.env.*
+*.token
+secrets.*
+private/
+exports/
+*.csv
+*.xlsx
+
+# Apps Script local tooling
+.clasp.json
+.claspignore
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node test artifacts
+node_modules/
+.npm/
+coverage/

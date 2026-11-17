@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+<defs><marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12z" fill="#334155"/></marker>
+<style>
+.title{font:bold 30px Arial;fill:#0f172a}.sub{font:16px Arial;fill:#475569}
+.box{stroke-width:2;rx:14}.meta{fill:#fff7ed;stroke:#c2410c}.google{fill:#eff6ff;stroke:#1d4ed8}.store{fill:#f0fdf4;stroke:#15803d}
+.h{font:bold 19px Arial;fill:#0f172a}.t{font:15px Arial;fill:#334155}.e{stroke:#334155;stroke-width:2.5;fill:none;marker-end:url(#a)}.l{font:13px Arial;fill:#334155}.w{font:bold 15px Arial;fill:#991b1b}
+</style></defs>
+<rect width="1400" height="760" fill="white"/>
+<text x="60" y="58" class="title">WhatsApp Baby Tracker — MVP Architecture</text>
+<text x="60" y="88" class="sub">Verified inbound path: WhatsApp → Meta Cloud API → Apps Script → Google Sheets</text>
+<rect x="60" y="160" width="230" height="125" class="box meta"/><text x="175" y="198" text-anchor="middle" class="h">Caregiver</text><text x="175" y="230" text-anchor="middle" class="t">WhatsApp client</text><text x="175" y="254" text-anchor="middle" class="t">Text activity message</text>
+<rect x="370" y="160" width="250" height="125" class="box meta"/><text x="495" y="198" text-anchor="middle" class="h">Meta Cloud API</text><text x="495" y="230" text-anchor="middle" class="t">WhatsApp Business Account</text><text x="495" y="254" text-anchor="middle" class="t">Webhook + Graph API</text>
+<rect x="700" y="130" width="310" height="185" class="box google"/><text x="855" y="169" text-anchor="middle" class="h">Google Apps Script</text><text x="855" y="205" text-anchor="middle" class="t">doPost(e): URL-secret check</text><text x="855" y="232" text-anchor="middle" class="t">handle_(): dedup + caregiver auth</text><text x="855" y="259" text-anchor="middle" class="t">parse_(): rule-based classification</text><text x="855" y="286" text-anchor="middle" class="t">send_(): outbound reply attempt</text>
+<rect x="1100" y="125" width="240" height="105" class="box store"/><text x="1220" y="164" text-anchor="middle" class="h">Caregivers</text><text x="1220" y="194" text-anchor="middle" class="t">Phone allowlist</text>
+<rect x="1100" y="270" width="240" height="105" class="box store"/><text x="1220" y="309" text-anchor="middle" class="h">Activity_Log</text><text x="1220" y="339" text-anchor="middle" class="t">Recorded events</text>
+<rect x="1100" y="415" width="240" height="105" class="box store"/><text x="1220" y="454" text-anchor="middle" class="h">Webhook_Inbox</text><text x="1220" y="484" text-anchor="middle" class="t">IDs + processing state</text>
+<rect x="700" y="430" width="310" height="120" class="box google"/><text x="855" y="470" text-anchor="middle" class="h">Summary processing</text><text x="855" y="501" text-anchor="middle" class="t">summary_() / upsert_()</text><text x="855" y="526" text-anchor="middle" class="t">dashboard_()</text>
+<rect x="1100" y="570" width="240" height="105" class="box store"/><text x="1220" y="609" text-anchor="middle" class="h">Daily_Summary</text><text x="1220" y="639" text-anchor="middle" class="t">Daily aggregates</text>
+<rect x="700" y="600" width="310" height="75" class="box store"/><text x="855" y="645" text-anchor="middle" class="h">Dashboard charts</text>
+<path d="M290 222 L370 222" class="e"/><text x="330" y="205" text-anchor="middle" class="l">message</text><path d="M620 222 L700 222" class="e"/><text x="660" y="205" text-anchor="middle" class="l">webhook</text>
+<path d="M1010 180 L1100 180" class="e"/><text x="1055" y="163" text-anchor="middle" class="l">authorize</text><path d="M1010 250 L1100 320" class="e"/><text x="1054" y="276" text-anchor="middle" class="l">append event</text>
+<path d="M1010 285 L1100 465" class="e"/><text x="1045" y="390" class="l">record status</text><path d="M1220 375 L1220 415" class="e"/><path d="M1220 520 L1220 570" class="e"/>
+<path d="M1100 620 L1010 638" class="e"/><path d="M855 430 L855 315" class="e"/><text x="870" y="380" class="l">summary command</text>
+<text x="60" y="720" class="w">Known gaps: no Meta X-Hub-Signature-256 validation in Apps Script; outbound send returned Meta error 131031.</text>
+</svg>
