@@ -165,26 +165,7 @@ The parser is deliberately rule-based. It does not call an LLM. The phrase `dire
 - **Webhook signature:** the current Apps Script `doPost(e)` checks a URL query secret and caregiver allowlist, but does **not** validate Meta's `X-Hub-Signature-256` header. Apps Script's standard web-app event object does not expose arbitrary inbound request headers. This is a known security limitation; do not describe the current endpoint as signature-verified.
 - **Data destination:** Google Sheets is the operational datastore. This repository does not include a database migration layer, queue, or separate backend.
 - **Medical use:** do not use this MVP to make feeding, medication, or health decisions. Validate entries against the caregiver's actual observations.
-
-## Development and change control
-
-Before enhancements, preserve this checkpoint:
-
-```bash
-git init
-git add .
-git commit -m "chore: checkpoint working WhatsApp baby tracker MVP"
-git tag v0.1.0-mvp-checkpoint
-```
-
-Then make enhancements on a branch:
-
-```bash
-git switch -c feat/parser-natural-language
-```
-
-Use the practices in [CONTRIBUTING.md](CONTRIBUTING.md), [TESTING.md](docs/TESTING.md), and [LIMITATIONS_AND_ROADMAP.md](docs/LIMITATIONS_AND_ROADMAP.md).
-
+  
 ## Documentation index
 
 - [Architecture](docs/ARCHITECTURE.md)
